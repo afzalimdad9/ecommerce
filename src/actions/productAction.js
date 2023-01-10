@@ -38,10 +38,10 @@ export const getProduct =
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
-      let link = `https://sleepy-jade-scarab.cyclic.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+      let link = process.env.BACKEND_URI + `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
 
       if (category) {
-        link = `https://sleepy-jade-scarab.cyclic.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
+        link = process.env.BACKEND_URI + `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
       }
 
       const { data } = await axios.get(link);
@@ -63,7 +63,7 @@ export const getAdminProduct = () => async (dispatch) => {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
     const { data } = await axios.get(
-      "https://sleepy-jade-scarab.cyclic.app/api/v1/admin/products"
+      process.env.BACKEND_URI + "/api/v1/admin/products"
     );
 
     dispatch({
@@ -88,7 +88,7 @@ export const createProduct = (productData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/admin/product/new`,
+      process.env.BACKEND_URI + "/api/v1/admin/product/new",
       productData,
       config
     );
@@ -115,7 +115,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/admin/product/${id}`,
+      process.env.BACKEND_URI + `/api/v1/admin/product/${id}`,
       productData,
       config
     );
@@ -138,7 +138,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
     const { data } = await axios.delete(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/admin/product/${id}`
+      process.env.BACKEND_URI + `/api/v1/admin/product/${id}`
     );
 
     dispatch({
@@ -159,7 +159,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/product/${id}`
+      process.env.BACKEND_URI + `/api/v1/product/${id}`
     );
 
     dispatch({
@@ -184,7 +184,7 @@ export const newReview = (reviewData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/review`,
+      process.env.BACKEND_URI + "/api/v1/review",
       reviewData,
       config
     );
@@ -207,7 +207,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
     const { data } = await axios.get(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/reviews?id=${id}`
+      process.env.BACKEND_URI + `/api/v1/reviews?id=${id}`
     );
 
     dispatch({
@@ -228,7 +228,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
     const { data } = await axios.delete(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/reviews?id=${reviewId}&productId=${productId}`
+      process.env.BACKEND_URI + `/api/v1/reviews?id=${reviewId}&productId=${productId}`
     );
 
     dispatch({

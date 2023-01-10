@@ -33,7 +33,7 @@ export const createOrder = (order) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "https://sleepy-jade-scarab.cyclic.app/api/v1/order/new",
+      process.env.BACKEND_URI + "/api/v1/order/new",
       order,
       config
     );
@@ -53,7 +53,7 @@ export const myOrders = () => async (dispatch) => {
     dispatch({ type: MY_ORDERS_REQUEST });
 
     const { data } = await axios.get(
-      "https://sleepy-jade-scarab.cyclic.app/api/v1/orders/me"
+      process.env.BACKEND_URI + "/api/v1/orders/me"
     );
 
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
@@ -71,7 +71,7 @@ export const getAllOrders = () => async (dispatch) => {
     dispatch({ type: ALL_ORDERS_REQUEST });
 
     const { data } = await axios.get(
-      "https://sleepy-jade-scarab.cyclic.app/api/v1/admin/orders"
+      process.env.BACKEND_URI + "/api/v1/admin/orders"
     );
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
@@ -94,7 +94,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
       },
     };
     const { data } = await axios.put(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/admin/order/${id}`,
+      process.env.BACKEND_URI + `/api/v1/admin/order/${id}`,
       order,
       config
     );
@@ -114,7 +114,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     dispatch({ type: DELETE_ORDER_REQUEST });
 
     const { data } = await axios.delete(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/admin/order/${id}`
+      process.env.BACKEND_URI + `/api/v1/admin/order/${id}`
     );
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
@@ -132,7 +132,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     dispatch({ type: ORDER_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `https://sleepy-jade-scarab.cyclic.app/api/v1/order/${id}`
+      process.env.BACKEND_URI + `/api/v1/order/${id}`
     );
 
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
