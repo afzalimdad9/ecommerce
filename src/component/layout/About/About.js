@@ -29,11 +29,13 @@ const About = () => {
           </div>
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
-            <a href="#" target="blank">
+                        {/* eslint-disable-next-line */}
+<a href="#" target="blank">
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
 
-            <a href="#" target="blank">
+                        {/* eslint-disable-next-line */}
+<a href="#" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>
