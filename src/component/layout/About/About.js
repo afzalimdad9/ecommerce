@@ -34,6 +34,7 @@ const About = () => {
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
 
+            {/* eslint-disable-next-line */}
             <a href="#" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
