@@ -52,6 +52,8 @@ function App() {
     const { data } = await axios.get(
       `${process.env.BACKEND_URI}/api/v1/stripeapikey`
     );
+    
+    console.log(process.env.BACKEND_URI)
 
     setStripeApiKey(data.stripeApiKey);
   }
