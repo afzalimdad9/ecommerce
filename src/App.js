@@ -50,7 +50,7 @@ function App() {
 
   async function getStripeApiKey() {
     const { data } = await axios.get(
-      `${process.env.BACKEND_URI}/api/v1/stripeapikey`
+      `https://sleepy-jade-scarab.cyclic.app/api/v1/stripeapikey`
     );
     
     console.log(process.env.BACKEND_URI)
