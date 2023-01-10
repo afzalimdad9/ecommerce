@@ -230,8 +230,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
     const { data } = await axios.delete(
-      process.env.BACKEND_URI +
-        `/api/v1/reviews?id=${reviewId}&productId=${productId}`
+     `https://sleepy-jade-scarab.cyclic.app/api/v1/reviews?id=${reviewId}&productId=${productId}`
     );
 
     dispatch({
