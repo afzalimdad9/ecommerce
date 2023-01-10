@@ -67,7 +67,7 @@ function App() {
 
     store.dispatch(loadUser());
 
-    getStripeApiKey();  console.log(process.env.BACKEND_URI)
+    getStripeApiKey();
   }, []);
 
   window.addEventListener("contextmenu", (e) => e.preventDefault());
