@@ -22,9 +22,12 @@ const Footer = () => {
 
       <div className="rightFooter">
         <h4>Follow Us</h4>
-        <a href="#">Instagram</a>
-        <a href="#">Youtube</a>
-        <a href="#">Facebook</a>
+                    {/* eslint-disable-next-line */}
+<a href="#">Instagram</a>
+                    {/* eslint-disable-next-line */}
+<a href="#">Youtube</a>
+                    {/* eslint-disable-next-line */}
+<a href="#">Facebook</a>
       </div>
     </footer>
   );
