@@ -5,7 +5,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 const About = () => {
   const visitInstagram = () => {
-    window.location.href = "/about";
+    window.location = "https://localhost:3000/about";
   };
   return (
     <div className="aboutSection">
@@ -29,13 +29,12 @@ const About = () => {
           </div>
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
-                        {/* eslint-disable-next-line */}
-<a href="#" target="blank">
+            {/* eslint-disable-next-line */}
+            <a href="#" target="blank">
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
 
-                        {/* eslint-disable-next-line */}
-<a href="#" target="blank">
+            <a href="#" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>

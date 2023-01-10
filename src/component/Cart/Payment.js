@@ -57,7 +57,7 @@ const Payment = ({ history }) => {
         },
       };
       const { data } = await axios.post(
-        "/api/v1/payment/process",
+        "https://sleepy-jade-scarab.cyclic.app/api/v1/payment/process",
         paymentData,
         config
       );
