@@ -8,7 +8,7 @@ import axios from "axios";
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(
-    process.env.BACKEND_URI + `/api/v1/product/${id}`
+    `${process.env.BACKEND_URI}/api/v1/product/${id}`
   );
 
   dispatch({

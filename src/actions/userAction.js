@@ -46,7 +46,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      process.env.BACKEND_URI + "/api/v1/login",
+      `${process.env.BACKEND_URI}/api/v1/login`,
       { email, password },
       config
     );
@@ -65,7 +65,7 @@ export const register = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.post(
-      process.env.BACKEND_URI + "/api/v1/register",
+      `${process.env.BACKEND_URI}/api/v1/register`,
       userData,
       config
     );
@@ -84,9 +84,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(
-      process.env.BACKEND_URI + "/api/v1/me"
-    );
+    const { data } = await axios.get(`${process.env.BACKEND_URI}/api/v1/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -97,7 +95,7 @@ export const loadUser = () => async (dispatch) => {
 // Logout User
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(process.env.BACKEND_URI + "/api/v1/logout");
+    await axios.get(`${process.env.BACKEND_URI}/api/v1/logout`);
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
@@ -113,7 +111,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.put(
-      process.env.BACKEND_URI + "/api/v1/me/update",
+      `${process.env.BACKEND_URI}/api/v1/me/update`,
       userData,
       config
     );
@@ -135,7 +133,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      process.env.BACKEND_URI + "/api/v1/password/update",
+      `${process.env.BACKEND_URI}/api/v1/password/update`,
       passwords,
       config
     );
@@ -157,7 +155,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      process.env.BACKEND_URI + "/api/v1/password/forgot",
+      `${process.env.BACKEND_URI}/api/v1/password/forgot`,
       email,
       config
     );
@@ -179,7 +177,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      process.env.BACKEND_URI + `/api/v1/password/reset/${token}`,
+      `${process.env.BACKEND_URI}/api/v1/password/reset/${token}`,
       passwords,
       config
     );
@@ -198,7 +196,7 @@ export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
     const { data } = await axios.get(
-      process.env.BACKEND_URI + "/api/v1/admin/users"
+      `${process.env.BACKEND_URI}/api/v1/admin/users`
     );
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
@@ -212,7 +210,7 @@ export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
     const { data } = await axios.get(
-      process.env.BACKEND_URI + `/api/v1/admin/user/${id}`
+      `${process.env.BACKEND_URI}/api/v1/admin/user/${id}`
     );
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
@@ -229,7 +227,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      process.env.BACKEND_URI + `/api/v1/admin/user/${id}`,
+      `${process.env.BACKEND_URI}/api/v1/admin/user/${id}`,
       userData,
       config
     );
@@ -249,7 +247,7 @@ export const deleteUser = (id) => async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
 
     const { data } = await axios.delete(
-      process.env.BACKEND_URI + `/api/v1/admin/user/${id}`
+      `${process.env.BACKEND_URI}/api/v1/admin/user/${id}`
     );
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
