@@ -5,7 +5,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 const About = () => {
   const visitInstagram = () => {
-    window.location = "https://localhost:3000/about";
+    window.location = "https://www.instagram.com/afzalabro689/";
   };
   return (
     <div className="aboutSection">
@@ -30,12 +30,12 @@ const About = () => {
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
             {/* eslint-disable-next-line */}
-            <a href="#" target="blank">
+            <a href="https://www.youtube.com/@afzalimdad/featured" target="blank">
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
 
             {/* eslint-disable-next-line */}
-            <a href="#" target="blank">
+            <a href="https://www.instagram.com/afzalabro689/" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>
